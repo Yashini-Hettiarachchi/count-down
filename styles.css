@@ -1,0 +1,1185 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF69B4, #FFB6C1, #FFC0CB);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #2c3e50;
+    position: relative;
+}
+
+/* Decorative Elements */
+.decorative-elements {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Cake Decorations */
+.cake-decoration {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: url('cake.png') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+    animation: floatElement 6s ease-in-out infinite;
+}
+
+.cake-decoration:nth-child(1) {
+    left: 5%;
+    top: 10%;
+    animation-delay: 0s;
+}
+
+.cake-decoration:nth-child(2) {
+    right: 5%;
+    top: 15%;
+    animation-delay: 2s;
+}
+
+.cake-decoration:nth-child(3) {
+    left: 15%;
+    bottom: 10%;
+    animation-delay: 1s;
+}
+
+.cake-decoration:nth-child(4) {
+    right: 15%;
+    bottom: 15%;
+    animation-delay: 3s;
+}
+
+/* Tulip Decorations */
+.tulip-decoration {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: url('tulip.png') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+    animation: floatElement 5s ease-in-out infinite;
+}
+
+.tulip-decoration:nth-child(5) {
+    left: 25%;
+    top: 20%;
+    animation-delay: 0.5s;
+}
+
+.tulip-decoration:nth-child(6) {
+    right: 25%;
+    top: 25%;
+    animation-delay: 2.5s;
+}
+
+.tulip-decoration:nth-child(7) {
+    left: 35%;
+    bottom: 20%;
+    animation-delay: 1.5s;
+}
+
+.tulip-decoration:nth-child(8) {
+    right: 35%;
+    bottom: 25%;
+    animation-delay: 3.5s;
+}
+
+/* Greeting Card Decorations */
+.card-decoration {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    background: url('happy-birthday-greeting-card.png') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+    animation: floatElement 7s ease-in-out infinite;
+}
+
+.card-decoration:nth-child(9) {
+    left: 45%;
+    top: 30%;
+    animation-delay: 1s;
+}
+
+.card-decoration:nth-child(10) {
+    right: 45%;
+    top: 35%;
+    animation-delay: 3s;
+}
+
+@keyframes floatElement {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg) scale(1);
+        filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.3));
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg) scale(1.05);
+        filter: drop-shadow(0 15px 25px rgba(255, 105, 180, 0.5));
+    }
+}
+
+/* Birthday Balloons Animation */
+body::before {
+    content: '🎈';
+    position: fixed;
+    font-size: 2em;
+    animation: floatBalloon 6s ease-in-out infinite;
+    left: 10%;
+    top: 20%;
+    z-index: 1;
+}
+
+body::after {
+    content: '🎈';
+    position: fixed;
+    font-size: 2.5em;
+    animation: floatBalloon 8s ease-in-out infinite;
+    right: 15%;
+    top: 15%;
+    z-index: 1;
+}
+
+@keyframes floatBalloon {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Confetti Background */
+.confetti {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.confetti::before,
+.confetti::after {
+    content: '🎉';
+    position: absolute;
+    font-size: 1.5em;
+    animation: confettiFall 3s linear infinite;
+}
+
+.confetti::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.confetti::after {
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+@keyframes confettiFall {
+    0% { 
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Door Page Styles */
+.container {
+    text-align: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    perspective: 1000px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.doors-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    left: 0;
+    top: 0;
+}
+
+.door {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    transform-origin: 0% 50%;
+    transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-door {
+    left: 0;
+    transform-origin: left;
+}
+
+.right-door {
+    right: 0;
+    transform-origin: right;
+}
+
+.door-front {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF69B4, #FFB6C1);
+    position: relative;
+    overflow: hidden;
+    border: 15px solid #FF1493;
+    box-shadow: 
+        0 0 30px rgba(255, 105, 180, 0.5),
+        inset 0 0 50px rgba(255, 20, 147, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Door Frame Decoration */
+.door-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('happy-birthday-greeting-card.png') no-repeat center center;
+    background-size: 60%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Door Panel Pattern */
+.door-front::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: 
+        linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.2) 49%, rgba(255, 255, 255, 0.2) 51%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.2) 49%, rgba(255, 255, 255, 0.2) 51%, transparent 52%);
+    background-size: 100px 100px;
+    pointer-events: none;
+}
+
+/* Door Handle */
+.door-handle {
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 80px;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.left-door .door-handle {
+    right: 40px;
+}
+
+.right-door .door-handle {
+    left: 40px;
+}
+
+.door-handle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.7),
+        inset 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.door-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, #FFF8DC 0%, #FFD700 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Door Decorative Elements */
+.door-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.door-decoration::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 15%;
+    background: linear-gradient(45deg, 
+        transparent 0%,
+        rgba(255, 215, 0, 0.1) 45%,
+        rgba(255, 215, 0, 0.2) 50%,
+        rgba(255, 215, 0, 0.1) 55%,
+        transparent 100%);
+    border-radius: 50%;
+}
+
+.door-decoration::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 15%;
+    background: linear-gradient(45deg, 
+        transparent 0%,
+        rgba(255, 215, 0, 0.1) 45%,
+        rgba(255, 215, 0, 0.2) 50%,
+        rgba(255, 215, 0, 0.1) 55%,
+        transparent 100%);
+    border-radius: 50%;
+}
+
+/* Door Wood Grain Effect */
+.door-grain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 0, 0, 0.1) 10px,
+            rgba(0, 0, 0, 0.1) 20px
+        );
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Door Hover Effect */
+.door:hover .door-front {
+    box-shadow: 
+        0 0 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+.door:hover .door-handle::before {
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.7),
+        inset 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.door.open-left {
+    transform: rotateY(-110deg);
+}
+
+.door.open-right {
+    transform: rotateY(110deg);
+}
+
+.open-button {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    margin: 0;
+    padding: 20px 40px;
+    font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 4px 15px rgba(255, 20, 147, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.2);
+    text-transform: none;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.open-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    transform: rotate(45deg);
+    animation: buttonShine 3s linear infinite;
+}
+
+@keyframes buttonShine {
+    0% { transform: rotate(45deg) translateY(-100%); }
+    100% { transform: rotate(45deg) translateY(100%); }
+}
+
+.open-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 6px 25px rgba(255, 20, 147, 0.4),
+        0 0 0 4px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(45deg, #FF1493, #FF69B4);
+}
+
+.open-button:hover::before {
+    left: 100%;
+}
+
+/* Tribute Page Styles */
+.tribute-page {
+    background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.tribute-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.45;
+    z-index: 0;
+    pointer-events: none;
+    animation: backgroundFloat 20s ease-in-out infinite;
+}
+
+.tribute-container {
+    max-width: 900px;
+    padding: 60px 20px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 30px;
+    box-shadow: 
+        0 20px 60px rgba(255, 105, 180, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.content-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+
+.content-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #FF1493;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2em;
+    color: #FF69B4;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #e74c3c;
+    margin: 30px 0 20px;
+}
+
+.message-section, .poem-section {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(255, 105, 180, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 105, 180, 0.2);
+}
+
+.message-section:hover, .poem-section:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(255, 105, 180, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 105, 180, 0.4);
+}
+
+.english-message, .english-poem {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.sinhala-message, .sinhala-poem {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #34495e;
+    margin-bottom: 25px;
+}
+
+/* Enhanced Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: enhancedFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes enhancedFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .open-button {
+        bottom: 30px;
+        padding: 15px 30px;
+        font-size: 1.3em;
+    }
+    
+    h1 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .open-button {
+        bottom: 20px;
+        padding: 12px 24px;
+        font-size: 1.2em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    .music-button {
+        padding: 8px 15px;
+    }
+}
+
+/* Music Controls */
+.music-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-button {
+    background: rgba(255, 105, 180, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+.music-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 20, 147, 0.9);
+}
+
+.music-icon {
+    font-size: 1.2em;
+    animation: musicNote 2s infinite;
+}
+
+.music-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1em;
+    color: white;
+}
+
+@keyframes musicNote {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* When music is playing */
+.music-button.playing .music-icon {
+    animation: musicNote 1s infinite;
+}
+
+.music-button.playing {
+    background: rgba(255, 215, 0, 0.9);
+}
+
+.music-button.playing .music-text {
+    color: #fff;
+}
+
+/* Responsive styles for music controls */
+@media (max-width: 480px) {
+    .music-controls {
+        top: 10px;
+        right: 10px;
+    }
+
+    .music-button {
+        padding: 8px 15px;
+    }
+
+    .music-text {
+        font-size: 0.8em;
+    }
+}
+
+/* Image Gallery Styles */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+    padding: 10px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        min-width: 250px;
+    }
+    
+    .gallery-image {
+        height: 250px;
+    }
+}
+
+/* Add floating image decorations */
+.tribute-page::after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: 180px, 180px, 220px;
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
+    animation: floatImages 15s ease-in-out infinite;
+}
+
+@keyframes floatImages {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(5px, 8px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-8px, 5px) rotate(-1deg);
+    }
+    75% {
+        transform: translate(8px, -5px) rotate(0.5deg);
+    }
+}
+
+@keyframes backgroundFloat {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-5px, 5px);
+    }
+    50% {
+        transform: translate(5px, -5px);
+    }
+    75% {
+        transform: translate(-5px, -5px);
+    }
+}
+
+/* Balloon Decorations for Tribute Page */
+.tribute-page {
+    position: relative;
+    overflow: hidden;
+}
+
+.balloon {
+    position: fixed;
+    font-size: 3.2em;
+    z-index: 1;
+    animation: floatBalloon 10s ease-in-out infinite;
+    opacity: 0.95;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.balloon:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.balloon:nth-child(1) {
+    content: '🎈';
+    left: 1%;
+    top: 2%;
+    animation-delay: 0s;
+    font-size: 3.8em;
+    color: #FF69B4;
+}
+
+.balloon:nth-child(2) {
+    content: '🎈';
+    right: 1%;
+    top: 3%;
+    animation-delay: 1.5s;
+    font-size: 3.5em;
+    color: #FF1493;
+}
+
+.balloon:nth-child(3) {
+    content: '🎈';
+    left: 3%;
+    top: 55%;
+    animation-delay: 2.8s;
+    font-size: 4.2em;
+    color: #FFB6C1;
+}
+
+.balloon:nth-child(4) {
+    content: '🎈';
+    right: 2%;
+    top: 50%;
+    animation-delay: 2s;
+    font-size: 3.7em;
+    color: #FF69B4;
+}
+
+.balloon:nth-child(5) {
+    content: '🎈';
+    left: 1%;
+    bottom: 3%;
+    animation-delay: 0.8s;
+    font-size: 4em;
+    color: #FF1493;
+}
+
+.balloon:nth-child(6) {
+    content: '🎈';
+    right: 2%;
+    bottom: 2%;
+    animation-delay: 3.2s;
+    font-size: 3.6em;
+    color: #FFB6C1;
+}
+
+.balloon:nth-child(7) {
+    content: '🎈';
+    left: 49%;
+    top: 1%;
+    animation-delay: 2.4s;
+    font-size: 4.5em;
+    color: #FF69B4;
+}
+
+.balloon:nth-child(8) {
+    content: '🎈';
+    right: 48%;
+    bottom: 1%;
+    animation-delay: 1.8s;
+    font-size: 4.2em;
+    color: #FF1493;
+}
+
+/* Additional Decorative Elements */
+.sparkle {
+    position: fixed;
+    font-size: 1.8em;
+    z-index: 1;
+    animation: sparkleFloat 5s ease-in-out infinite;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+.sparkle:nth-child(9) {
+    content: '✨';
+    left: 15%;
+    top: 25%;
+    animation-delay: 0.4s;
+    font-size: 2em;
+}
+
+.sparkle:nth-child(10) {
+    content: '✨';
+    right: 20%;
+    top: 30%;
+    animation-delay: 2s;
+    font-size: 2.2em;
+}
+
+.sparkle:nth-child(11) {
+    content: '✨';
+    left: 30%;
+    bottom: 20%;
+    animation-delay: 2.6s;
+    font-size: 1.9em;
+}
+
+.sparkle:nth-child(12) {
+    content: '✨';
+    right: 25%;
+    bottom: 25%;
+    animation-delay: 1.2s;
+    font-size: 2.1em;
+}
+
+/* New Heart Decorations */
+.heart {
+    position: fixed;
+    font-size: 1.5em;
+    z-index: 1;
+    animation: floatHeart 6s ease-in-out infinite;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+}
+
+.heart:nth-child(13) {
+    content: '💖';
+    left: 35%;
+    top: 15%;
+    animation-delay: 0.6s;
+    font-size: 2em;
+}
+
+.heart:nth-child(14) {
+    content: '💖';
+    right: 35%;
+    top: 18%;
+    animation-delay: 1.8s;
+    font-size: 1.8em;
+}
+
+/* Enhanced Animations */
+@keyframes floatBalloon {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    }
+    25% {
+        transform: translateY(-45px) rotate(10deg) scale(1.2);
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+    }
+    50% {
+        transform: translateY(-25px) rotate(-8deg) scale(1);
+        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    }
+    75% {
+        transform: translateY(-50px) rotate(6deg) scale(1.15);
+        filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5));
+    }
+}
+
+@keyframes sparkleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.8;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    }
+    25% {
+        transform: translateY(-20px) rotate(60deg) scale(1.3);
+        opacity: 1;
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
+    }
+    50% {
+        transform: translateY(-15px) rotate(-60deg) scale(1);
+        opacity: 0.9;
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
+    }
+    75% {
+        transform: translateY(-25px) rotate(45deg) scale(1.2);
+        opacity: 0.95;
+        filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.95));
+    }
+}
+
+@keyframes floatHeart {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.85;
+        filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+    }
+    25% {
+        transform: translateY(-30px) scale(1.3);
+        opacity: 1;
+        filter: drop-shadow(0 0 12px rgba(255, 105, 180, 0.8));
+    }
+    50% {
+        transform: translateY(-20px) scale(1);
+        opacity: 0.9;
+        filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.7));
+    }
+    75% {
+        transform: translateY(-35px) scale(1.2);
+        opacity: 0.95;
+        filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.9));
+    }
+}
+
+/* Birthday Countdown Styles */
+.birthday-countdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(255, 105, 180, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    animation: countdownFloat 3s ease-in-out infinite;
+    min-width: 400px;
+}
+
+.countdown-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+}
+
+.countdown-item span:first-child {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #FF1493;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-family: 'Dancing Script', cursive;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.countdown-label {
+    font-size: 1em;
+    color: #666;
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.birthday-message {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    border-radius: 15px;
+    color: white;
+    animation: messagePulse 2s ease-in-out infinite;
+    min-width: 400px;
+}
+
+.birthday-message h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Dancing Script', cursive;
+}
+
+.birthday-message p {
+    font-size: 1.2em;
+    opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes countdownFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+}
+
+@keyframes messagePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+    }
+}
+
+/* Dedication Message Styles */
+.dedication-message {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 40px;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(255, 105, 180, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    font-family: 'Dancing Script', cursive;
+    animation: dedicationFloat 3s ease-in-out infinite;
+    display: flex;
+    gap: 40px;
+    min-width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-section, .from-section {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.dedication-message h3 {
+    color: #FF1493;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+.dedication-message p {
+    color: #666;
+    font-size: 1.6em;
+    margin: 8px 0;
+    padding-left: 0;
+}
+
+.from-section p {
+    color: #FF69B4;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+@keyframes dedicationFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+} 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Birthday Countdown -->
+    <div class="birthday-countdown">
+        <div id="countdown" class="countdown-container">
+            <div class="countdown-item">
+                <span id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+        <div id="birthday-message" class="birthday-message" style="display: none;">
+            <h2>Happy Birthday Ammi! 🎂</h2>
+            <p>May your day be as special as you are!</p>
+        </div>
+    </div>
+
+    <!-- Dedication Message -->
+    <div class="dedication-message">
+        <div class="to-section">
+            <h3>To:</h3>
+            <p>Ammi</p>
+        </div>
+        <div class="from-section">
+            <h3>From:</h3>
+            <p>Thaththi</p>
+            <p>Sudu Putha</p>
+            <p>Dony</p>
+        </div>
+    </div>
+
+    <div class="confetti"></div>
+    
+
+    
+    <!-- Audio element for background music -->
+    <div class="music-controls">
+        <audio id="bgMusic" loop autoplay>
+            <source src="happy-birthday-334876.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button id="musicToggle" class="music-button">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Play Birthday Song</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="doors-container">
+            <div class="door left-door">
+                <div class="door-front">
+                    <div class="door-decoration"></div>
+                    <div class="door-grain"></div>
+                    <div class="door-handle"></div>
+                </div>
+            </div>
+            <div class="door right-door">
+                <div class="door-front">
+                    <div class="door-decoration"></div>
+                    <div class="door-grain"></div>
+                    <div class="door-handle"></div>
+                </div>
+            </div>
+        </div>
+        <button id="openDoors" class="open-button">Open Your Birthday Surprise 🎁</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
